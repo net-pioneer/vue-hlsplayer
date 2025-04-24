@@ -1,0 +1,16 @@
+@use '../abstracts/values' as *;
+video{
+  height: 464px;
+  width: 100%;
+  @include sm{
+    height: 200px;
+  }
+}
+video::cue {
+  color: white;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px 4px;
+  border-radius: 4px;
+  text-shadow: 0 0 2px black;
+}

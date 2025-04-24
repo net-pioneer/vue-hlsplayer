@@ -1,0 +1,26 @@
+@use 'values';
+.box-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: values.$background-color2 !important;
+  transition: 0.2s ease;
+  text-decoration: none !important;
+  border-radius: 4px;
+  i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:values.$main-text-color;
+    width: 20px;
+    height: 20px;
+  }
+  &:hover {
+    color: red !important;
+    i {
+      color: red !important;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@use "sass:map";
+@use './abstracts/values' as *;
+@use './abstracts/global' as *;
+$height:55px;
+.movie-show{
+  .head-section1{
+    div{
+      width: max-content;
+    }
+    .movie-info{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-height: $height;
+      height: $height;
+      .badge {
+        width: 43px;
+        height: 43px;
+        background-color: #b30000;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        padding:2px;
+        .badge-quality {
+          background-color: white;
+          color: #b30000;
+          font-family: Arial !important;
+          font-weight: bold;
+          font-size: 11px;
+          width: 80%;
+          height: 18px;
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: 2px;
+        }
+        .badge-source {
+          color: white;
+          font-weight: bold;
+          font-size: 10px;
+          margin-top: 7px;
+        }
+      }
+      .movie-name{
+        font-size: map.get($fonts-sizes,28);
+        font-weight: 900;
+      }
+      .movie-director{
+        font-size: map.get($fonts-sizes,14);
+        margin-top: -8px;
+      }
+    }
+    .head-controls{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .dropdown{
+        max-width: 185px;
+        width: 185px;
+        height: $height;
+        .custom-dropdown-toggle{
+          height: $height;
+          font-size: map.get($fonts-sizes,14);
+          white-space: nowrap;
+          background-color: $background-color1;
+          display: flex;
+          align-items: center;
+          padding: 0;
+          border-radius: 8px;
+          border: none !important;
+          justify-content: space-around;
+          div{
+            padding-top: 5px;
+          }
+          i{
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            color:$sec-text-color;
+          }
+          &:hover{
+            background-color: $background-color2 !important;
+          }
+        }
+      }
+      @include sm{
+        display: none;
+      }
+    }
+
+
+  }
+  .head-section2{
+    justify-content: space-between;
+    & > .imdb{
+      display: flex;
+      img{
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        margin-inline-start: 5px;
+      }
+      & > span{
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      & > span:last-child{
+        font-size: map.get($fonts-sizes,24);
+
+      }
+      & > span:not(:last-child){
+        font-size: map.get($fonts-sizes,18);
+        font-weight: bold;
+      }
+    }
+
+    .b-icons{
+      gap: 10px;
+      padding-inline-start: 10px;
+      a{
+        @extend .box-icon;
+        background-color: $background-color1 !important;
+      }
+      @include sm{
+        display: none !important;
+      }
+    }
+  }
+
+  //----------
+  .video-content{
+    min-height: 465px;
+    &>div:first-child{
+      padding-left: 0;
+    }
+    @include sm{
+      min-height: auto !important;
+    }
+  }
+}

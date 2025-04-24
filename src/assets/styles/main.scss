@@ -1,0 +1,49 @@
+@use './abstracts/fonts';
+@use './abstracts/values' as *;
+@use './abstracts/global';
+@use './abstracts/structures';
+@use "bootstrap/scss/bootstrap";
+@use 'bootstrap-icons/font/bootstrap-icons.css';
+@use "sass:map";
+:root {
+  --bs-body-color: #{$main-text-color};
+}
+*{
+  font-family: 'YekanBakh' !important;
+  direction: rtl;
+}
+body{
+  background-color: $background-color2 !important;
+}
+.btn-back{
+  font-weight: 900;
+  font-size: map.get($fonts-sizes,14);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  gap: 5px;
+  i{
+    padding-top: 2px;
+    font-size: 10px;
+  }
+}
+.sec-block{
+  height: 48px;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 10px;
+  span{
+    padding-top: 3px;
+  }
+  i{
+    display: flex;
+  }
+}
+
+//@media (min-width: 1200px) {
+//  .container-xl, .container-lg, .container-md, .container-sm, .container {
+//    max-width: 1060px;
+//  }
+//}

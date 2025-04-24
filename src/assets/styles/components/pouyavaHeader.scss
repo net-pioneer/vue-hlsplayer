@@ -1,0 +1,32 @@
+@use '../abstracts/values' as *;
+@use '../abstracts/global' as *;
+@use "sass:map";
+.pheader{
+  width: 100%;
+  height: 65px;
+  font-size: map.get($fonts-sizes,14);
+  background-color: $background-color1 !important;
+  *{
+    color:$main-text-color !important;
+  }
+  .navbar-collapse{
+    background-color: $background-color1 !important;
+    & > div:first-child{
+      padding-right: 15px;
+    }
+  }
+  .navbar-toggler{
+    background-color: white;
+  }
+  .nav-link{
+    &:hover{
+      color:red !important;
+    }
+  }
+  .nav-box{
+    gap:2px;
+    .nav-link{
+      @extend .box-icon;
+    }
+  }
+}
