@@ -1,7 +1,4 @@
-export interface GenericApiResult<T>{
-    status:boolean,
-    data:T
-}
+export type GenericApiResult<T> = T;
 
 export interface Episode {
     number: number;

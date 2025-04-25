@@ -15,7 +15,7 @@ abstract class BaseRequest{
         });
         this.axios_instance.interceptors.response.use(
             async (response) => {
-                return response;
+                return response.data;
             },
             (error) => {
                 console.error("Error fetching data UseRequest");
@@ -34,11 +34,7 @@ export namespace UseRequest {
             super();
         }
         public async signedGet<T>(url, headers = {}): Promise<GenericApiResult<T>> {
-            const data = await this.axios_instance.get(url, headers);
-            return{
-                data:data.data,
-                status:data.status === 200
-            }
+            return await this.axios_instance.get(url, headers);
         }
         public async signedPost<T>(url,loading, data, headers = {}): Promise<GenericApiResult<T>> {
             loading.value = true;

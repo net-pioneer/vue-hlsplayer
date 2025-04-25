@@ -17,10 +17,10 @@
             </div>
             <div>
               <div class="movie-name">
-                {{ resApi.data.title_fa }}
+                {{ resApi.title_fa }}
               </div>
               <div class="movie-director">
-                {{ resApi.data.title_en }}
+                {{ resApi.title_en }}
               </div>
             </div>
           </div>
@@ -44,12 +44,12 @@
         </div>
         <div class="col-12 col-lg-4 d-flex align-items-center head-section2">
           <div style="width: 175px">
-            <MovieRating :init-rate="resApi.data.user_rating" :sid="resApi.data.id"/>
+            <MovieRating :init-rate="resApi.user_rating" :sid="resApi.id"/>
           </div>
           <div class="imdb me-auto">
             <span>10</span>
             <span>/</span>
-            <span>{{ resApi.data.imdb }}</span>
+            <span>{{ resApi.imdb }}</span>
             <img src="/images/imdb.png"/>
           </div>
           <div class="b-icons d-flex me-auto">
@@ -64,10 +64,10 @@
       </div>
       <div class="mt-4 row col-12 video-content">
         <div class="col-12 col-lg-8 m-auto">
-          <video-player :poster="resApi.data.poster" :sid="resApi.data.id" />
+          <video-player :poster="resApi.poster" :sid="resApi.id" />
         </div>
         <div class="col-12 col-lg-4">
-          <episode-list-view :series-number="selectedSeasonId" :sid="resApi.data.id" :episodes="resApi.data.episodes" :selected-episode="selectedEpisodeId"/>
+          <episode-list-view :series-number="selectedSeasonId" :sid="resApi.id" :episodes="resApi.episodes" :selected-episode="selectedEpisodeId"/>
         </div>
       </div>
     </div>
@@ -89,9 +89,10 @@ const http = SrvRequest();
 const selectedEpisodeId = ref(parseInt(route.params?.episode) || 1);
 const selectedSeasonId = ref(1);
 const resApi = await http.signedGet<Series>('/?action=info&id=2501');
-if(!resApi.status){
-  alert("failed");
-}
+
+// if(!resApi.status){
+//   alert("failed");
+// }
 </script>
 
 <style scoped lang="scss">

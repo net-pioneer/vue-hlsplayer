@@ -51,7 +51,7 @@ const onMouseLeave = ()=>{
 const onRateSelect = async (rateNum:number)=> {
   if(!ratedSeasons.value.includes(props.sid)) {
     const res = await http.signedPost<Rating>(`/?action=rate&id=${props.sid}`, loading, {rate: rateNum});
-    if (!res.status && !res.data.success) {
+    if (!res.success) {
       alert("failed!");
     } else {
       ratedSeasons.value.push(props.sid);
